@@ -1,0 +1,338 @@
+/*
+ * reset css
+ */
+@charset "utf-8";
+html, body, div, p, ul, li, dl, dd, dt, h1, h2, h3, h4, h5, h6, ol, input, textarea, section, article, hgroup {
+	padding: 0;
+	margin: 0;
+}
+html, body {
+	width: 100%;
+	height: 100%; 
+	-webkit-user-select: none;
+	user-select: none;
+	box-sizing: border-box;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+ul, li, ol {
+	list-style: none;
+}
+img {
+	-webkit-touch-callout: none;
+	display: block;
+	border: 0;
+}
+a {
+	text-decoration: none;
+}
+input, textarea, button, button {
+	outline: none;
+}
+input:disabled {
+    background: transparent;
+    color: #666;
+}
+button:disabled {
+  opacity: 0.5;
+  color: #666;
+}
+input::-webkit-input-placeholder {
+  color: #999;
+}
+input:-moz-placeholder {
+  color: #999;
+}
+
+
+
+/* 
+	common sass
+ */
+$baseColor: rgba(83,202,196,1);
+$baseBg: rgb(83,202,196);
+$baseBgOpcity: rgba(83,202,196,.3);
+$colorfff: #fff;
+$defaultPadding: 0 10%;
+$defaultMargin: 0 10%;
+
+.flex-box {
+	display: flex;
+    flex-direction: column;
+}
+.float-l {float: left;}
+.float-r {float: right;}
+.pos-r {position: relative;}
+.pos-a {position: absolute;}
+.pos-f {position: fixed;}
+.text-center {text-align: center;}
+.block-center {
+	margin-left: auto;
+	margin-right: auto;
+}
+.clearfix:after { 
+    clear: both; 
+    content: ''; 
+    height: 0; 
+    visibility: hidden; 
+    display: block; 
+    font-style: 0 
+}
+.hr {
+	width: 100%;
+	height: 10px;
+	background-color: transparent;
+}
+.anchorBL {
+	display: none;
+} 
+.full-screen {
+	width: 100%;
+	min-height: 100%;
+}
+.bg-fff {
+	background-color: #fff;
+}
+.color-fff {
+    color: $colorfff;
+}
+.color-liked {
+  color: #f60;
+}
+.bg-topic {
+    background-color: #53cac4;
+}
+.bg-f5 {
+	background-color: #f5f5f5;
+}
+.bg-transparent {
+    background-color: transparent;
+}
+.default-btn {
+	width: 100%;
+	height: 40px;
+	color: #fff;
+	background: $baseBg;
+	text-decoration: underline;
+}
+
+.bg-ddd {
+	background-color: #ddd;
+}
+.bg-red {
+	background-color: red;
+}
+.bg-yellow {
+	background-color: yellow;
+}
+.bg-green {
+	background-color: green;
+}
+.radius-round {
+	border-radius: 50%;
+}
+
+
+//字体 
+.font-12 {font-size: 12px;}
+.font-14 {font-size: 14px;}
+.font-16 {font-size: 16px;}
+.font-18 {font-size: 18px;}
+.font-20 {font-size: 20px;}
+.font-22 {font-size: 22px;}
+.font-24 {font-size: 24px;}
+
+
+
+.banner-height {
+	width: 100%;
+	height: 210px;
+}
+input {
+	box-sizing: border-box;
+	width: 100%;
+	border: 0;
+	height: 40px;
+	line-height: 40px;
+	text-indent:10px;
+	font-size: 14px;
+}
+button {
+	border: 0;
+	font-size: 16px;
+}
+@mixin absoluteTL($top:0, $left:0) {
+	position: absolute;
+	top: $top;
+	left: $left;
+}
+@mixin absoluteTR($top:0, $right:0) {
+	position: absolute;
+	top: $top;
+	right: $right;
+}
+@mixin absoluteBL($btm:0, $left:0) {
+	position: absolute;
+	bottom: $btm;
+	left: $left;
+}
+@mixin absoluteBR($btm:0, $right:0) {
+	position: absolute;
+	bottom: $btm;
+	right: $right;
+}
+
+body {
+	font-size: 14px;
+}
+
+
+/* 
+ * transition css 
+ * bounce : 弹性
+ * fulldown: 向下
+ */
+.bounce-enter-active {
+	animation: bounce-in .5s;
+}
+.bounce-leave-active {
+	animation: bounce-out 1s;
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes bounce-out {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+.vertical-center {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
+.fulldown-enter-active {
+	animation: fulldown-in 1s;
+}
+.fulldown-leave-active {
+	animation: fulldown-out .8s;
+}
+@keyframes fulldown-in {
+  0% {
+    transform: translate(0, 999px) translateZ(0);
+  }
+  100% {
+    transform: translate(0, 0) translateZ(0);
+  }
+}
+@keyframes fulldown-out {
+  0% {
+    transform: translate(0, 0) translateZ(0);
+  }
+  100% {
+    transform: translate(0, 999px) translateZ(0);
+  }
+}
+
+.fullleft-enter-active {
+	animation: fulldown-in 1s;
+}
+.fullleft-leave-active {
+	animation: fulldown-out .5s;
+}
+@keyframes fullleft-in {
+  0% {
+    transform: translate(999px, 0) translateZ(0);
+  }
+  100% {
+    transform: translate(0, 0) translateZ(0);
+  }
+}
+@keyframes fullleft-out {
+  0% {
+    transform: translate(0, 0) translateZ(0);
+  }
+  100% {
+    transform: translate(999px, 0) translateZ(0);
+  }
+}
+
+
+//修改头部样式
+.head-cell {
+    .fa {
+        font-size: 1.5em;
+    }
+}
+
+//input list css
+.input-list {
+    position: relative;
+    height: 50px;
+    line-height: 40px;
+    padding: 5px 0;
+    border-bottom: 1px solid #ebebeb;
+    .list-title {
+        width: 100px;
+        position: absolute;
+        top: 5px;
+        left: 0;
+    }
+    .list-text {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        input {
+            flex: 1;
+        }
+    }
+}
+.input-list-word {
+    .list-text {
+        padding-left: 100px;
+    }
+}
+
+
+//btn 
+.btn-self-wrapper {
+    padding: 0 20px;
+}
+.flex-container {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    flex: 1;
+    &::-webkit-scrollbar {
+      width: 0; 
+    }
+}
+.home-head-fa {
+    line-height: 40px;
+    font-size: 2em;
+    color: #fff;
+}
+
+.sms-btn {
+    font-size: 12px;
+    background: transparent;
+    text-decoration: underline;
+    color: #53cac4;
+}
