@@ -6,17 +6,17 @@ import common from './modules/common'
 // import introduction from './modules/introduction';
 // import user from './modules/user';
 
-Vue.use(Vuex);
+Vue.use(Vuex)
 
 const store = new Vuex.Store({
-	modules: {
-		common
-		// main,
-		// message,
-		// introduction,
-		// user
-	}
-	// strict: process.env.NODE_ENV !== 'production' //严格模式
-});
+  modules: {
+    common
+    // main,
+    // message,
+    // introduction,
+    // user
+  }
+  // strict: process.env.NODE_ENV !== 'production' //严格模式
+})
 
 export default store

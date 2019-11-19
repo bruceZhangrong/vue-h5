@@ -14,7 +14,6 @@
           <router-link class="active" active-class="RouterActive" to="/message">
             <!-- <img :src="`./static/images/information${onIcon[1]}.png`" /> -->
             <i class="fa fa-2x fa-commenting-o"></i>
-
             <span>消息</span>
           </router-link>
         </li>
@@ -70,7 +69,7 @@
     color: rgb(83, 202, 196);
   }
   #bruce {
-    overflow-y: auto; 
+    overflow-y: auto;
   }
   .view {
     width: 100%;
@@ -78,65 +77,62 @@
   }
   #nav i {
     display: block;
-    margin-bottom: 5px; 
+    margin-bottom: 5px;
   }
 
 </style>
 
 <script>
 
-import Loading from 'components/common/loading/loading';
-import 'assets/styles/common/common';
-import { mapState } from 'vuex';
-
+import Loading from 'components/common/loading/loading'
+import 'assets/styles/common/common'
+import { mapState } from 'vuex'
 
 export default {
-  components:{
+  components: {
     Loading
   },
-  data() {
+  data () {
     return {
       // onIcon: ['-on','','',''],
       // onStr: '-on'
       firstTimes: true
     }
   },
-  created() {
-    if(!this.COM_FUNC.LOGIN()) {
-      this.$router.push({path:'/login', query: {toPage: this.$route.path}});
+  created () {
+    if (!this.COM_FUNC.LOGIN()) {
+      this.$router.push({path: '/login', query: {toPage: this.$route.path}})
     }
-    this.COM_FUNC.judgeBrowser();  //判断打开的是PC还是手机
-    //CommonFunc.hadFetch();    //判断是否可以使用Fetch Api
-    
+    // 判断打开的是PC还是手机 CommonFunc.hadFetch() 判断是否可以使用Fetch Api
+    this.COM_FUNC.judgeBrowser()
   },
-  beforeMount() {
+  beforeMount () {
 
   },
-  mounted(){
-
+  mounted () {
     this.$store.dispatch('showLoading', {
       isLoading: false
-    });
-    this.initialization();
+    })
+    this.initialization()
   },
   computed: mapState({
-      footBar: state => state.common.footBar
+    footBar: state => state.common.footBar
   }),
-  methods:{
-    initialization(){
-      this.$refs.app.style.height=window.screen.availHeight+'px';
-      this.$refs.app.style.width=window.screen.availWidth+'px';
+  methods: {
+    initialization () {
+      this.$refs.app.style.height = window.screen.availHeight + 'px'
+      this.$refs.app.style.width = window.screen.availWidth + 'px'
     },
-    watchRouter() {
-      if(this.$route.path == '/') {
-        this.firstTimes = true;
+    watchRouter () {
+      if (this.$route.path === '/') {
+        this.firstTimes = true
       } else {
-        this.firstTimes = false;
+        this.firstTimes = false
       }
     }
   },
   watch: {
-    "$route": 'watchRouter'
+    '$route': 'watchRouter'
   }
 }
 </script>
